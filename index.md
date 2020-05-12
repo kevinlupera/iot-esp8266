@@ -17,3 +17,21 @@ title: IOT-ESP8266
 
 
 <iframe src="https://miclaro.com.ec/pagatufactura/web/index.php/593980410345" style="width:100%; height:45rem;"></iframe>
+<script>
+window.addEventListener('statusPayBill', function(e) { 
+    var estado = e.detail.estado;
+    if(estado == 'EXITO'){
+        succesPayBill();
+    }else{
+        errorPayBill();
+    }
+    
+}, false);
+
+function succesPayBill() { 
+  //Codigo pago con éxito
+}
+function errorPayBill() { 
+  //Codigo pago con error
+}
+</script>
