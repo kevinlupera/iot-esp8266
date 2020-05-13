@@ -15,20 +15,17 @@ title: IOT-ESP8266
   {% endfor %}
 </ul>
 
-
+<div id="results"></div>
 <iframe id="your-frame-id" src="https://miclaro.com.ec/pagatufacturaPrueba/web/index.php/593980410345" style="width:100%; height:45rem;"></iframe>
 <script>
-window.addEventListener('message', event => {
-    // IMPORTANT: check the origin of the data! 
-    if (event.origin.startsWith('https://kevinlupera.github.io')) { 
-        // The data was sent from your site.
-        // Data sent with postMessage is stored in event.data:
-        console.log(event.data); 
-    } else {
-        // The data was NOT sent from your site! 
-        // Be careful! Do not use it. This else branch is
-        // here just for clarity, you usually shouldn't need it.
-        return; 
-    } 
-}); 
+function bindEvent(element, eventName, eventHandler) {
+    if (element.addEventListener){
+        element.addEventListener(eventName, eventHandler, false);
+    } else if (element.attachEvent) {
+        element.attachEvent('on' + eventName, eventHandler);
+    }
+}
+bindEvent(window, 'message', function (e) {
+    results.innerHTML = e.data;
+});
 </script>
