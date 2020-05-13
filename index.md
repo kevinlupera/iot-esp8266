@@ -38,5 +38,6 @@ function succesPayBill() {
 }
 function errorPayBill() {
   //Codigo pago con error
+  alert('error');
 }
 </script>
