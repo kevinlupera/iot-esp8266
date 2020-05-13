@@ -19,15 +19,24 @@ title: IOT-ESP8266
 <iframe id="your-frame-id" src="https://miclaro.com.ec/pagatufacturaPrueba/web/index.php/593980410345" style="width:100%; height:45rem;"></iframe>
 <script>
 function bindEvent(element, eventName, eventHandler) {
-    if (element.addEventListener){
-        element.addEventListener(eventName, eventHandler, false);
-    } else if (element.attachEvent) {
-        element.attachEvent('on' + eventName, eventHandler);
-    }
+  if (element.addEventListener) {
+    element.addEventListener(eventName, eventHandler, false);
+  } else if (element.attachEvent) {
+    element.attachEvent("on" + eventName, eventHandler);
+  }
 }
-bindEvent(window, 'message', function (e) {
+bindEvent(window, "message", function (e) {
   if (event.origin !== "https://miclaro.com.ec") return;
-  results = document.getElementById('results');
-  results.innerHTML = e.data;
+  if (e.data == "statusPayBill-EXITO") {
+    succesPayBill();
+  } else if (e.data == "statusPayBill-ERROR") {
+    errorPayBill();
+  }
 });
+function succesPayBill() {
+  //Codigo pago con éxito
+}
+function errorPayBill() {
+  //Codigo pago con error
+}
 </script>
