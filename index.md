@@ -26,7 +26,8 @@ function bindEvent(element, eventName, eventHandler) {
     }
 }
 bindEvent(window, 'message', function (e) {
+  if (event.origin !== "https://miclaro.com.ec/") return;
   results = document.getElementById('results');
-    results.innerHTML = e.data;
+  results.innerHTML = e.data;
 });
 </script>
