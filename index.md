@@ -16,7 +16,7 @@ title: IOT-ESP8266
 </ul>
 
 
-<iframe id="your-frame-id" src="https://miclaro.com.ec/pagatufactura/web/index.php/593980410345" style="width:100%; height:45rem;"></iframe>
+<iframe id="your-frame-id" src="https://miclaro.com.ec/pagatufacturaPrueba/web/index.php/593980410345" style="width:100%; height:45rem;"></iframe>
 <script>
 window.addEventListener('message', event => {
     // IMPORTANT: check the origin of the data! 
