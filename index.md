@@ -16,22 +16,19 @@ title: IOT-ESP8266
 </ul>
 
 
-<iframe src="https://miclaro.com.ec/pagatufactura/web/index.php/593980410345" style="width:100%; height:45rem;"></iframe>
+<iframe id="your-frame-id" src="https://miclaro.com.ec/pagatufactura/web/index.php/593980410345" style="width:100%; height:45rem;"></iframe>
 <script>
-window.addEventListener('statusPayBill', function(e) { 
-    var estado = e.detail.estado;
-    if(estado == 'EXITO'){
-        succesPayBill();
-    }else{
-        errorPayBill();
-    }
-    
-}, false);
-
-function succesPayBill() { 
-  //Codigo pago con éxito
-}
-function errorPayBill() { 
-  //Codigo pago con error
-}
+window.addEventListener('message', event => {
+    // IMPORTANT: check the origin of the data! 
+    if (event.origin.startsWith('https://kevinlupera.github.io')) { 
+        // The data was sent from your site.
+        // Data sent with postMessage is stored in event.data:
+        console.log(event.data); 
+    } else {
+        // The data was NOT sent from your site! 
+        // Be careful! Do not use it. This else branch is
+        // here just for clarity, you usually shouldn't need it.
+        return; 
+    } 
+}); 
 </script>
